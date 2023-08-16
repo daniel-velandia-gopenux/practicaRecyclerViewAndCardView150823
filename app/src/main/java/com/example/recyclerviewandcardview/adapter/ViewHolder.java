@@ -1,10 +1,13 @@
-package com.example.recyclerviewandcardview;
+package com.example.recyclerviewandcardview.adapter;
 
 import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recyclerviewandcardview.utils.LoadUrlImage;
+import com.example.recyclerviewandcardview.model.Movie;
+import com.example.recyclerviewandcardview.utils.OnItemClick;
 import com.example.recyclerviewandcardview.databinding.ItemLayoutBinding;
 
 public class ViewHolder extends RecyclerView.ViewHolder {
@@ -16,14 +19,16 @@ public class ViewHolder extends RecyclerView.ViewHolder {
         this.binding = binding;
     }
 
-    public void bind(String name, OnItemClick listener) {
+    public void bind(Movie movie, OnItemClick listener) {
 
-        binding.tvName.setText(name);
+        binding.tvName.setText(movie.getName());
+        LoadUrlImage.loadUrl(movie.getPhoto(), binding.ivPhoto);
 
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemclick(name, getAdapterPosition());
+                System.out.println(getAdapterPosition());
+                listener.onItemclick(movie, getAdapterPosition());
             }
         });
     }

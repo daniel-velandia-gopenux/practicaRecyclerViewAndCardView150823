@@ -1,25 +1,24 @@
-package com.example.recyclerviewandcardview;
+package com.example.recyclerviewandcardview.adapter;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.recyclerviewandcardview.model.Movie;
+import com.example.recyclerviewandcardview.utils.OnItemClick;
 import com.example.recyclerviewandcardview.databinding.ItemLayoutBinding;
-
-import org.xmlpull.v1.XmlPullParser;
 
 import java.util.List;
 
 public class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
-    private List<String> names;
+    private List<Movie> movies;
     private OnItemClick listener;
 
-    public Adapter(List<String> names, OnItemClick listener) {
-        this.names = names;
+    public Adapter(List<Movie> movies, OnItemClick listener) {
+        this.movies = movies;
         this.listener = listener;
     }
 
@@ -34,12 +33,12 @@ public class Adapter extends RecyclerView.Adapter<ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        String name = names.get(position);
-        holder.bind(name, listener);
+        Movie movie = movies.get(position);
+        holder.bind(movie, listener);
     }
 
     @Override
     public int getItemCount() {
-        return this.names.size();
+        return this.movies.size();
     }
 }

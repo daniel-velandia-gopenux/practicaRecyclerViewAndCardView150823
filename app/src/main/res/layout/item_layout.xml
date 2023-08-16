@@ -1,22 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
-    android:orientation="vertical">
-
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground" >
     <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/ivPhoto"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher_foreground"
-        android:background="@android:color/darker_gray" />
+        android:layout_height="150dp" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/tvName"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="name"
+        tools:text="@string/name"
+        android:textColor="@color/white"
         android:textAlignment="center"
-        android:textSize="22sp" />
-
-</androidx.appcompat.widget.LinearLayoutCompat>
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/marginTitle"
+        android:padding="@dimen/paddingTitle"
+        android:background="@drawable/background_title"
+        android:alpha="0.6"
+        android:textSize="@dimen/sizeTitle" />
+    </com.google.android.material.card.MaterialCardView>
